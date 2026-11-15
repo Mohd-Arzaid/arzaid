@@ -12,7 +12,7 @@ const projects = [
     description:
       "A responsive food ordering website with advanced search, Stripe payment integration.",
     href: "https://arzaid-food-app.vercel.app/",
-    image: "/projects/Project2.png",
+    image: "/projects/food-app.png",
     tags: ["MongoDB", "ExpressJS", "React", "NodeJs", "ShadCN"],
   },
   {
@@ -20,7 +20,7 @@ const projects = [
     description:
       "Implemented a multimode Typing Test Website with the ability to save results for better analysis.",
     href: "https://arzaid-typing-hub.netlify.app/",
-    image: "/projects/Project3.png",
+    image: "/projects/typing-hub.png",
     tags: ["React", "Firebase", "Toastify", "Styled Components"],
   },
   {

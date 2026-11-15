@@ -33,9 +33,11 @@ export default function ProjectCard({ title, description, href, image, tags }) {
           {image && (
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg bg-zinc-950 mb-4">
               <Image
+                key={image}
                 src={image}
                 alt={title}
                 fill
+                sizes="(max-width: 768px) 100vw, 320px"
                 className="object-cover object-top"
               />
             </div>
