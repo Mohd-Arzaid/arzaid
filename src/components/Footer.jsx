@@ -48,13 +48,7 @@ export default function Footer() {
             LinkedIn
           </ExternalLink>
           <ExternalLink href="https://x.com/__Arzaid__">Twitter</ExternalLink>
-          <ExternalLink href="https://instagram.com">Instagram</ExternalLink>
-          <Link href="/freelance" className={linkClass}>
-            Freelancing
-          </Link>
-          <Link href="/design-inspiration" className={linkClass}>
-            Design Inspiration
-          </Link>
+          <ExternalLink href="https://www.instagram.com/_arzaid_">Instagram</ExternalLink>
         </div>
       </div>
 
@@ -82,10 +76,7 @@ export default function Footer() {
             LinkedIn
           </ExternalLink>
           <ExternalLink href="https://x.com/__Arzaid__">Twitter</ExternalLink>
-          <ExternalLink href="https://instagram.com">Instagram</ExternalLink>
-          <Link href="/freelance" className={linkClass}>
-            Freelancing
-          </Link>
+          <ExternalLink href="https://www.instagram.com/_arzaid_">Instagram</ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
           <Link href="/resources" className={linkClass}>
@@ -93,9 +84,6 @@ export default function Footer() {
           </Link>
           <Link href="/demos" className={linkClass}>
             Live Demos
-          </Link>
-          <Link href="/design-inspiration" className={linkClass}>
-            Design Inspiration
           </Link>
         </div>
       </div>
