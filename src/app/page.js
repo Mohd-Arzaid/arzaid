@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import BlogPost from "@/components/BlogPost";
 import ProjectCard from "@/components/ProjectCard";
 import Footer from "@/components/Footer";
+import WorkExperience from "@/components/WorkExperience";
 import projects from "@/data/projects";
 
 export default function Home() {
@@ -34,6 +35,28 @@ export default function Home() {
             className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900"
           >
             See All Blogs
+            <svg
+              className="h-4 w-4 ml-1"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </Link>
+
+          <WorkExperience limit={2} />
+          <Link
+            href="/work"
+            className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900"
+          >
+            View All
             <svg
               className="h-4 w-4 ml-1"
               xmlns="http://www.w3.org/2000/svg"

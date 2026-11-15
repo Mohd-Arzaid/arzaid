@@ -15,6 +15,7 @@ export default function Navbar() {
     { name: "Snippets", link: "/snippets" },
     { name: "Resources", link: "/resources" },
     { name: "Projects", link: "/projects" },
+    { name: "Work", link: "/work" },
   ];
 
   const mobileLinks = [
@@ -23,6 +24,7 @@ export default function Navbar() {
     { name: "Blog", link: "/blog" },
     { name: "Snippets", link: "/snippets" },
     { name: "Resources", link: "/resources" },
+    { name: "Work", link: "/work" },
     { name: "Freelancing", link: "/freelance" },
     { name: "Box Shadows", link: "/boxshadows" },
     { name: "FreeCodeCamp", link: "/freecodecamp" },
