@@ -23,8 +23,6 @@ I've compiled down all the popular concepts and questions related to a Javascrip
 13. [Closures](/blog/ace-the-javascript-interview#closures)
 14. [Prototypes](/blog/ace-the-javascript-interview#prototypes)
 15. [Debouncing](/blog/ace-the-javascript-interview#debouncing)
-16. [Babel and Webpack: Coming Soon](/blog/ace-the-javascript-interview#babel-and-webpack)
-17. [Server Side Rendering: Coming Soon](/blog/ace-the-javascript-interview#server-side-rendering)
 
 <div id="array-methods">
   <StepLargeCustom number="1" title="Array Methods" />
@@ -76,7 +74,7 @@ reduce() is a powerful method which can be used to reduce the values of array to
 <HighlightBox>
   <strong>Example:</strong>
 </HighlightBox>
-Sum all the numbers of the array numbers = [1, 2, 3] and return the result
+Sum all the numbers of the array numbers = [1, 2, 3, 4] and return the result
 
 <HighlightBox>
   <strong>with reduce()</strong>
@@ -207,7 +205,7 @@ console.log(welcome); // Error
 ```js
 let text = "Hi Arzaid!";
 
-text = "Please redeclare me!"; // error: text has already been declared
+let text = "Please redeclare me!"; // error: text has already been declared
 ```
 
 But here is a catch, <HighlightBox>If the variable is defined in different scopes, there will be no error.</HighlightBox>
@@ -284,7 +282,8 @@ Here, `Reference error` will be thrown because the `counter` variable is not ini
   <strong>Example: Before hoisting</strong>
 </HighlightBox>
 
-```js let x = 1, y = 2;
+```js
+let x = 1, y = 2;
 let result = add(x, y);
 console.log(result);
 
@@ -604,7 +603,7 @@ const result = arr.myMap((item) => console.log(item));
 
 ```js
 Array.prototype.myFilter = function (callback, context) {
-  arr = [];
+  var arr = [];
   for (var i = 0; i < this.length; i++) {
     if (callback.call(context, this[i], i, this)) {
       arr.push(this[i]);
@@ -619,7 +618,7 @@ let arr = [
   { name: "Godzilla", songs: 11 },
 ];
 arr.myFilter(function (album) {
-  return arr.songs > 11; // providing the context here
+  return album.songs > 11; // providing the context here
 });
 ```
 
@@ -688,13 +687,13 @@ displayMe(); // Sidhu Moosewala
 
 This is a big one. 🥺
 
-> The event loop's job is to look at the stack and look at the task queue. If the stack is empty, it takes the first thing on the queue and pushed it on to the stack.
+> The event loop's job is to look at the stack and look at the task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
 
 Now what does this even mean? Let's have a look.
 
 Javascript is a <HighlightBox>Single-Threaded non-blocking asynchronous concurrent language.</HighlightBox> Which means it only has one call stack, one memory area.
 
-What makes JavaScript special is the addition things that the browser provides (Web APIs, Callback Queues and the event loop). But Natively, JavaScript just has 2 things, i.e. Heaps and Call Stack.
+What makes JavaScript special is the additional things that the browser provides (Web APIs, Callback Queues and the event loop). But Natively, JavaScript just has 2 things, i.e. Heaps and Call Stack.
 
 - Call Stack: A data Structure where function calls get stacked
 - Heap: A Memory area from where the memory is allocated to processes.
@@ -819,7 +818,7 @@ hello().then((value) => console.log(value));
 
 ```js
 let apiCall = async () => {
-  const response = await fetch("someapi.cpom/json");
+  const response = await fetch("https://someapi.com/json");
 
   if (!response.ok) throw new Error("Code Failed, Boo!");
 
@@ -872,7 +871,7 @@ fun(); // "Arzaid" is alerted
 ```
 
 Precisely, A closure is the combination of a function and the lexical environment within which that function was declared.
-Which means, That an inner function will know the it's surroundings, i.e. the parent scope and the collective `thing` is called a closure.
+Which means, That an inner function will know its surroundings, i.e. the parent scope and the collective `thing` is called a closure.
 
 Here,
 The instance of displayName maintains a reference to its lexical environment, within which the variable name exists. For this reason, when fun() is invoked, the variable name remains available for use, and "Arzaid" is passed to alert.
@@ -889,7 +888,7 @@ The instance of displayName maintains a reference to its lexical environment, wi
 > objects can have a prototype object, which acts as a template object that it inherits
 > methods and properties from.
 
-Javascript implicitly / internally puts the `__proto__` object. When we craete anything like a function or an object, Javascript add the **proto** object to it with properties and methods.
+Javascript implicitly / internally puts the `__proto__` object. When we create anything like a function or an object, Javascript add the **proto** object to it with properties and methods.
 
 ### Prototypal Inheritance
 
@@ -917,12 +916,12 @@ console.log(secondObject.programming);
 ```
 
 <div id="debouncing">
-  <StepLargeCustom number="14" title="Debouncing" />
+  <StepLargeCustom number="15" title="Debouncing" />
 </div>
 
 > Debouncing precisely is delaying some operation so that it is not called on every iteration instantly.
 
-Explaining the above statement: Debouce is used when one wants to delay some operation with some specific amount of time.
+Explaining the above statement: Debounce is used when one wants to delay some operation with some specific amount of time.
 
 Lets take an example:
 
@@ -971,7 +970,7 @@ let debounce = function (cb, delay) {
 inputEle.addEventListener("keyup", debounce(generateUsername, 300));
 ```
 
-We also `clearInterval()` to avoid unnecessary memory leaks.
+We also `clearTimeout()` to avoid unnecessary memory leaks.
 
 Long story short: GetUsernames will be called on keyup - but only if there is a 300ms delay between each keystroke.
 
