@@ -26,20 +26,22 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky-nav flex justify-end items-center max-w-4xl w-full p-8 mt-0 mb-0 md:mt-4 md:mb-10 mx-auto bg-white/60">
-      <a href="#skip" className="sr-only focus:not-sr-only">
-        Skip to content
-      </a>
-      <div className="hidden sm:block rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur">
-        <Desktop
-          links={links}
-          hoveredIndex={hoveredIndex}
-          setHoveredIndex={setHoveredIndex}
-          pathname={pathname}
-        />
-      </div>
-      <div className="block sm:hidden">
-        <Mobile links={mobileLinks} />
+    <nav className="sticky-nav w-full mt-0 mb-0 md:mt-4 md:mb-10 bg-white/60">
+      <div className="max-w-3xl w-full mx-auto flex justify-end items-center p-8">
+        <a href="#skip" className="sr-only focus:not-sr-only">
+          Skip to content
+        </a>
+        <div className="hidden sm:block rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur">
+          <Desktop
+            links={links}
+            hoveredIndex={hoveredIndex}
+            setHoveredIndex={setHoveredIndex}
+            pathname={pathname}
+          />
+        </div>
+        <div className="block sm:hidden">
+          <Mobile links={mobileLinks} />
+        </div>
       </div>
     </nav>
   );
