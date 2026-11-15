@@ -2,14 +2,39 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BlogLayout from "@/layouts/BlogLayout";
+import BlogPostClient from "./BlogPostClient";
 import posts from "@/data/blog";
+import { getFileBySlug, getFiles, mdxExists } from "@/lib/mdx";
 
 export function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }));
+  const mdxSlugs = getFiles("blog").map((file) => file.replace(/\.mdx$/, ""));
+  const dataSlugs = posts.map((post) => post.slug);
+  return [...new Set([...mdxSlugs, ...dataSlugs])].map((slug) => ({ slug }));
 }
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
+
+  if (mdxExists("blog", slug)) {
+    const { mdxSource, frontMatter } = await getFileBySlug("blog", slug);
+
+    return (
+      <div className="bg-white">
+        <Navbar />
+        <main
+          id="skip"
+          className="flex flex-col justify-center bg-white px-8 text-gray-900 antialiased"
+        >
+          <BlogLayout frontMatter={frontMatter}>
+            <BlogPostClient mdxSource={mdxSource} />
+          </BlogLayout>
+          <Footer />
+        </main>
+      </div>
+    );
+  }
+
   const post = posts.find((p) => p.slug === slug);
 
   if (!post) {

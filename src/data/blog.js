@@ -1,11 +1,10 @@
 const posts = [
   {
-    title:
-      "Ace the Javascript Interview - Practical questions to help you clear your next interview",
+    title: "Ace the Javascript Interview",
     summary:
-      "Ace your next Javascript Interview - Practice these topics in depth with examples and code snippets.",
+      "Ace your next Javascript Interview - Practice these topics in depth with examples.",
     slug: "ace-the-javascript-interview",
-    publishedAt: "2021-06-15",
+    publishedAt: "2021-07-03",
   },
   {
     title: "Free portfolio website template that gets you hired in 2021",

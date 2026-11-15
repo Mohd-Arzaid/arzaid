@@ -21,8 +21,8 @@ export default function Home() {
             Recent Blogs
           </h3>
           <BlogPost
-            title="Ace the Javascript Interview - Practical questions to help you clear your next interview"
-            summary="Ace your next Javascript Interview - Practice these topics in depth with examples and code snippets."
+            title="Ace the Javascript Interview"
+            summary="Ace your next Javascript Interview - Practice these topics in depth with examples."
             slug="ace-the-javascript-interview"
           />
           <BlogPost

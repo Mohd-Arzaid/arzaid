@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ["next-mdx-remote"],
   images: {
     qualities: [75, 100],
   },
