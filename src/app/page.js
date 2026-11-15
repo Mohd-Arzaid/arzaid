@@ -5,6 +5,7 @@ import BlogPost from "@/components/BlogPost";
 import ProjectCard from "@/components/ProjectCard";
 import Footer from "@/components/Footer";
 import WorkExperience from "@/components/WorkExperience";
+import VideoShowcase from "@/components/VideoShowcase";
 import projects from "@/data/projects";
 
 export default function Home() {
@@ -102,6 +103,8 @@ export default function Home() {
               />
             </svg>
           </Link>
+
+          <VideoShowcase />
         </div>
         <Footer />
       </main>
