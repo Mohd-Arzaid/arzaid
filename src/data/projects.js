@@ -1,5 +1,13 @@
 const projects = [
   {
+    title: "Job Portal Website",
+    description:
+      "A full-stack job portal for students to find and apply to roles, and for recruiters to post jobs and manage applications.",
+    href: "https://arzaid-job-portal.vercel.app/",
+    image: "/projects/job-portal.png?v=3",
+    tags: ["Next.js", "Node.js", "MongoDB", "Zod", "Cloudinary"],
+  },
+  {
     title: "StudyNotion",
     description:
       "An Ed-Tech platform for users to create, enroll in, and rate educational content.",
