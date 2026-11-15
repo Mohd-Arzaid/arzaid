@@ -61,9 +61,9 @@ export default function BlogClient({ posts }) {
             slug="ace-the-javascript-interview"
           />
           <BlogPost
-            title="Free portfolio website template that gets you hired in 2021"
-            summary="Build a modern, minimal portfolio website with Next.js and tailwindcss for developers that gets you hired for Full Stack Developer roles in 2021."
-            slug="developer-portfolio-website"
+            title="React Hooks traps that show up in real interviews"
+            summary="Stale closures, effect dependencies, derived state, and other hooks mistakes — with clear wrong vs right examples."
+            slug="react-hooks-traps"
           />
         </>
       )}

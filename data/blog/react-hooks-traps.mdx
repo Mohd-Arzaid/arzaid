@@ -1,0 +1,341 @@
+---
+title: "React Hooks traps that show up in real interviews"
+publishedAt: "2024-11-15"
+summary: "Stale closures, effect dependencies, derived state, and other hooks mistakes — with clear wrong vs right examples."
+---
+
+Hooks look simple until an interviewer asks why your counter is stuck, why the effect loops forever, or why the child keeps re-rendering.
+
+I have failed these questions myself. The patterns below are the ones that keep showing up in interviews and in real React apps.
+
+## Table of Contents
+
+1. [Why hooks trip people up](/blog/react-hooks-traps#why-hooks-trip-people-up)
+2. [Stale closures](/blog/react-hooks-traps#stale-closures)
+3. [useEffect dependency mistakes](/blog/react-hooks-traps#useeffect-dependency-mistakes)
+4. [Derived state](/blog/react-hooks-traps#derived-state)
+5. [useMemo and useCallback](/blog/react-hooks-traps#usememo-and-usecallback)
+6. [Custom hooks](/blog/react-hooks-traps#custom-hooks)
+7. [Rules of Hooks and cleanup](/blog/react-hooks-traps#rules-of-hooks-and-cleanup)
+8. [Interview checklist](/blog/react-hooks-traps#interview-checklist)
+
+<div id="why-hooks-trip-people-up">
+  <StepLargeCustom number="1" title="Why hooks trip people up" />
+</div>
+
+Hooks are just functions that close over the render where they ran. Every render gets a fresh set of props, state, and function identities.
+
+That single idea explains most "bugs":
+
+<StepCheck title="A value from an old render is still used later (stale closure)" />
+<StepCheck title="An effect re-runs because a dependency changed identity every render" />
+<StepCheck title="State is duplicated when it could be computed from existing state" />
+
+If closures feel fuzzy, refresh [Ace the Javascript Interview](/blog/ace-the-javascript-interview) — especially closures and the event loop — then come back here.
+
+<Divider />
+
+<div id="stale-closures">
+  <StepLargeCustom number="2" title="Stale closures" />
+</div>
+
+Classic interview trap: a timer or event handler that "remembers" the wrong `count`.
+
+<HighlightBox>
+  <strong>Broken:</strong>
+</HighlightBox>
+
+```js
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      // always sees the first count (0)
+      setCount(count + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []); // empty deps on purpose — trap
+
+  return <p>{count}</p>;
+}
+```
+
+The interval callback closed over `count` from the first render. It keeps adding `0 + 1`.
+
+<HighlightBox>
+  <strong>Fixed — functional update:</strong>
+</HighlightBox>
+
+```js
+useEffect(() => {
+  const id = setInterval(() => {
+    setCount((c) => c + 1);
+  }, 1000);
+  return () => clearInterval(id);
+}, []);
+```
+
+Or include `count` in the dependency array and reset the interval each time — usually worse for timers.
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> When the next state depends on the previous state, prefer `setState(prev => ...)`. Do not trust a closed-over value from an old render.
+
+Same trap shows up in `setTimeout`, websocket handlers, and `addEventListener` callbacks.
+
+<Divider />
+
+<div id="useeffect-dependency-mistakes">
+  <StepLargeCustom number="3" title="useEffect dependency mistakes" />
+</div>
+
+Three flavors interviewers love.
+
+### Missing dependencies
+
+```js
+useEffect(() => {
+  fetchUser(userId);
+}, []); // should depend on userId
+```
+
+You fetch once. When `userId` changes, nothing happens. ESLint's `exhaustive-deps` is usually right — silence it only when you can explain why.
+
+### Object / array identity
+
+```js
+const filters = { status: "open", sort: "asc" };
+
+useEffect(() => {
+  loadTasks(filters);
+}, [filters]); // new object every render → infinite or noisy fetches
+```
+
+<HighlightBox>
+  <strong>Better:</strong>
+</HighlightBox>
+
+```js
+useEffect(() => {
+  loadTasks({ status: "open", sort: "asc" });
+}, []); // if values are truly constant
+
+// or depend on primitives
+useEffect(() => {
+  loadTasks({ status, sort });
+}, [status, sort]);
+```
+
+### Infinite loops
+
+```js
+const [data, setData] = useState([]);
+
+useEffect(() => {
+  setData([...data, newItem]);
+}, [data]); // data changes → effect runs → data changes → ...
+```
+
+Do not put the state you are updating into the same effect's deps unless you use a functional update or a different trigger.
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> Depend on stable primitives. Treat new objects/arrays/functions as new values unless you memoize them on purpose.
+
+<Divider />
+
+<div id="derived-state">
+  <StepLargeCustom number="4" title="Derived state" />
+</div>
+
+This is one of the most common junior patterns — and a free interview point if you call it out.
+
+<HighlightBox>
+  <strong>Broken — syncing with an effect:</strong>
+</HighlightBox>
+
+```js
+const [items, setItems] = useState([]);
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+  setCount(items.length);
+}, [items]);
+```
+
+You now have two sources of truth. They can drift. Extra renders. Extra bugs.
+
+<HighlightBox>
+  <strong>Fixed — derive during render:</strong>
+</HighlightBox>
+
+```js
+const [items, setItems] = useState([]);
+const count = items.length;
+```
+
+Only keep state for values that change independently over time (user input, server data, UI toggles). Everything else: compute it.
+
+Another anti-pattern: copying props into state and syncing with `useEffect` when the parent updates. Prefer using the prop directly, or lift state up, or use a `key` to reset the child.
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> If you can calculate it from existing props/state, do not store it in another `useState`.
+
+<Divider />
+
+<div id="usememo-and-usecallback">
+  <StepLargeCustom number="5" title="useMemo and useCallback" />
+</div>
+
+Interviewers often ask: "Should I wrap everything?"
+
+Short answer: no.
+
+```js
+// usually pointless
+const value = useMemo(() => props.x + 1, [props.x]);
+const onClick = useCallback(() => console.log("hi"), []);
+```
+
+Use them when:
+
+<StepCheck title="An expensive calculation actually shows up in profiles" />
+<StepCheck title="You pass a callback/object to a memoized child (React.memo) and identity matters" />
+<StepCheck title="A dependency array needs a stable reference you control" />
+
+Do not use them as decoration. They add mental load and can still create new references if deps are wrong.
+
+```js
+const sorted = useMemo(() => {
+  return [...list].sort((a, b) => a.name.localeCompare(b.name));
+}, [list]);
+
+const handleSelect = useCallback(
+  (id) => {
+    onSelect(id);
+  },
+  [onSelect]
+);
+```
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> Measure first. Memoize for known expensive work or stable identities — not for vibes.
+
+<Divider />
+
+<div id="custom-hooks">
+  <StepLargeCustom number="6" title="Custom hooks" />
+</div>
+
+Custom hooks are for sharing stateful logic, not for hiding messy code.
+
+```js
+function useWindowWidth() {
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const onResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return width;
+}
+```
+
+Good custom hooks:
+
+<StepCheck title="Start with `use` so React and humans know the rules apply" />
+<StepCheck title="Return a small, clear API (value, setters, status)" />
+<StepCheck title="Own their cleanup" />
+<StepCheck title="Do not swallow errors silently" />
+
+Bad custom hooks wrap five unrelated effects and return a bag of mystery booleans. Extract one concern per hook.
+
+<Divider />
+
+<div id="rules-of-hooks-and-cleanup">
+  <StepLargeCustom number="7" title="Rules of Hooks and cleanup" />
+</div>
+
+### Rules of Hooks
+
+- Only call hooks at the top level of a React function component or custom hook
+- Never inside loops, conditions, or nested functions
+- Same order every render — that is how React matches hook state
+
+```js
+// broken
+if (user) {
+  useEffect(() => {
+    track(user.id);
+  }, [user]);
+}
+
+// fixed
+useEffect(() => {
+  if (!user) return;
+  track(user.id);
+}, [user]);
+```
+
+### Cleanup
+
+Effects that subscribe must unsubscribe.
+
+```js
+useEffect(() => {
+  const controller = new AbortController();
+
+  async function load() {
+    try {
+      const res = await fetch(`/api/user/${id}`, {
+        signal: controller.signal,
+      });
+      const json = await res.json();
+      setUser(json);
+    } catch (err) {
+      if (err.name !== "AbortError") throw err;
+    }
+  }
+
+  load();
+  return () => controller.abort();
+}, [id]);
+```
+
+Same idea for sockets, intervals, and listeners. Cleanup prevents updates on unmounted components and cancels in-flight work when deps change.
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> Hooks must run in a stable order. Every subscription you create in an effect needs a matching teardown.
+
+<Divider />
+
+<div id="interview-checklist">
+  <StepLargeCustom number="8" title="Interview checklist" />
+</div>
+
+Before you say "I know hooks," walk through this list out loud:
+
+<StepCheck title="Can I explain stale closures with a timer example?" />
+<StepCheck title="Do I know when empty `[]` is correct vs dangerous?" />
+<StepCheck title="Can I spot derived state that should not be in `useState`?" />
+<StepCheck title="Can I say when `useMemo` / `useCallback` are worth it?" />
+<StepCheck title="Can I write a small custom hook with proper cleanup?" />
+<StepCheck title="Do I respect Rules of Hooks without memorizing slogans only?" />
+
+Practice by breaking a tiny counter on purpose, then fixing it. That sticks better than reading docs twice.
+
+## Closing
+
+Hooks are not magic. They are render-scoped functions plus a dependency contract. Nail closures, deps, and single sources of truth — interviews get much easier after that.
+
+More tools and reading lists live on the [Resources](/resources) page.
+
+✌️ Thanks!

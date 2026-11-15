@@ -7,11 +7,11 @@ const posts = [
     publishedAt: "2021-07-03",
   },
   {
-    title: "Free portfolio website template that gets you hired in 2021",
+    title: "React Hooks traps that show up in real interviews",
     summary:
-      "Build a modern, minimal portfolio website with Next.js and tailwindcss for developers that gets you hired for Full Stack Developer roles in 2021.",
-    slug: "developer-portfolio-website",
-    publishedAt: "2021-05-20",
+      "Stale closures, effect dependencies, derived state, and other hooks mistakes — with clear wrong vs right examples.",
+    slug: "react-hooks-traps",
+    publishedAt: "2024-11-15",
   },
   {
     title: "Top 5 courses and resources to learn Next JS in 2021",
