@@ -16,9 +16,10 @@ export default function Home() {
         id="skip"
         className="flex flex-col justify-center bg-white px-8 text-gray-900 antialiased"
       >
-        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-10">
           <Header />
-          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black">
+          <VideoShowcase />
+          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-10 text-black">
             Recent Blogs
           </h3>
           <BlogPost
@@ -85,7 +86,7 @@ export default function Home() {
           </div>
           <Link
             href="/projects"
-            className="flex items-center text-sm mt-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900"
+            className="flex items-center text-sm mt-4 mb-10 mx-auto px-4 py-2 rounded-md font-medium text-gray-900"
           >
             See More
             <svg
@@ -104,7 +105,7 @@ export default function Home() {
             </svg>
           </Link>
 
-          <VideoShowcase />
+          <VideoShowcase src="/videos/snapgram-demo-2.mp4" />
         </div>
         <Footer />
       </main>

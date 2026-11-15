@@ -58,7 +58,9 @@ export default async function BlogPostPage({ params }) {
           <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black">
             {post.title}
           </h1>
-          <p className="text-gray-600 text-lg leading-relaxed">{post.summary}</p>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            {post.summary}
+          </p>
         </div>
         <Footer />
       </main>
