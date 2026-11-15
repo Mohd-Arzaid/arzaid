@@ -32,7 +32,7 @@ const Header = () => {
 
       <div className="relative shrink p-4 md:p-4 md:order-last order-first">
         <a
-          href="https://x.com/skrrtt_skrrrt_"
+          href="https://x.com/__Arzaid__"
           target="__blank"
           className="block z-5 overflow-hidden rounded shadow-xl ring-1 ring-slate-900/5 relative bg-white h-20 w-20"
         >

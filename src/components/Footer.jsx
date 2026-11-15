@@ -47,7 +47,7 @@ export default function Footer() {
           <ExternalLink href="https://github.com/Mohd-Arzaid">
             GitHub
           </ExternalLink>
-          <ExternalLink href="https://linkedin.com/in/mohd-arzaid">
+          <ExternalLink href="https://www.linkedin.com/in/mohd-arzaid-3220742ab/">
             LinkedIn
           </ExternalLink>
           <ExternalLink href="https://x.com/__Arzaid__">Twitter</ExternalLink>
@@ -87,7 +87,7 @@ export default function Footer() {
           <ExternalLink href="https://github.com/Mohd-Arzaid">
             GitHub
           </ExternalLink>
-          <ExternalLink href="https://linkedin.com/in/mohd-arzaid">
+          <ExternalLink href="https://www.linkedin.com/in/mohd-arzaid-3220742ab/">
             LinkedIn
           </ExternalLink>
           <ExternalLink href="https://x.com/__Arzaid__">Twitter</ExternalLink>
