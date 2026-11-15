@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 import BlogPost from "@/components/BlogPost";
 import ProjectCard from "@/components/ProjectCard";
+import projects from "@/data/projects";
 
 export default function Home() {
   return (
@@ -53,55 +54,9 @@ export default function Home() {
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <ProjectCard
-              title="Moonbeam"
-              description="Never write from scratch again. Kickstart your next great writing piece with Moonbeam. Your long-form writing AI assistant."
-              href="https://gomoonbeam.com"
-              icon="moonbeam"
-              tags={[
-                "Front-end",
-                "GPT-3",
-                "Next.js",
-                "React",
-                "TailwindCSS",
-                "Chrome Extension",
-              ]}
-            />
-            <ProjectCard
-              title="Aceternity"
-              description="Building modern applications that scale well and are easy to maintain. Cutting edge websites with a pinch of magic, and a lot of love."
-              href="https://aceternity.com"
-              icon="aceternity"
-              tags={["Next.js", "React", "TailwindCSS", "Full-Stack"]}
-            />
-            <ProjectCard
-              title="Algochurn"
-              description="Practice the most popular algorithmic questions and Front-end interview questions with an interactive IDE and learning environment."
-              href="https://algochurn.com"
-              icon="algochurn"
-              tags={["Next.js", "React", "TailwindCSS", "Monaco", "Algorithms"]}
-            />
-            <ProjectCard
-              title="Tailwind Master Kit"
-              description="Beautiful, Handcrafted, ready-to-use components and templates for your next Tailwind web app project."
-              href="https://tailwindmasterkit.com/"
-              icon="tailwindmasterkit"
-              tags={["Tailwind", "Next.js", "Freemium"]}
-            />
-            <ProjectCard
-              title="PlaceholderTech"
-              description="We build modern, blazing-fast web applications which helps your business grow and increase sales."
-              href="https://placeholdertech.in/"
-              icon="placeholdertech"
-              tags={["Web Dev Agency", "Products", "Freemium"]}
-            />
-            <ProjectCard
-              title="Feedmeback"
-              description="The easiest way to add comments or reviews to your static site. Built as part of React 2025."
-              href="https://feedmeback-beta.vercel.app/"
-              icon="fastfeedback"
-              tags={["Next.js", "Stripe", "TailwindCSS"]}
-            />
+            {projects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
           </div>
           <Link
             href="/projects"
