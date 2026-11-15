@@ -6,8 +6,30 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio",
+  title: {
+    default: "Mohd Arzaid",
+    template: "%s | Mohd Arzaid",
+  },
+  description:
+    "Full-stack developer who loves building cool things and low-level programming.",
+  icons: {
+    icon: [{ url: "/avatar.webp", type: "image/webp" }],
+    apple: [{ url: "/avatar.webp", type: "image/webp" }],
+  },
+  openGraph: {
+    title: "Mohd Arzaid",
+    description:
+      "Full-stack developer who loves building cool things and low-level programming.",
+    type: "website",
+    images: [{ url: "/avatar.webp" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Mohd Arzaid",
+    description:
+      "Full-stack developer who loves building cool things and low-level programming.",
+    images: ["/avatar.webp"],
+  },
 };
 
 export default function RootLayout({ children }) {
