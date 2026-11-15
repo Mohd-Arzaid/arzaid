@@ -13,18 +13,24 @@ function Step({ children }) {
   );
 }
 
-export default function WorkExperience({ limit, withTopMargin = true }) {
+export default function WorkExperience({
+  limit,
+  withTopMargin = true,
+  showHeading = true,
+}) {
   const roles = limit ? experience.slice(0, limit) : experience;
 
   return (
     <section className="w-full">
-      <h3
-        className={`font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black${
-          withTopMargin ? " mt-8" : ""
-        }`}
-      >
-        Work Experience
-      </h3>
+      {showHeading && (
+        <h3
+          className={`font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black${
+            withTopMargin ? " mt-8" : ""
+          }`}
+        >
+          Work Experience
+        </h3>
+      )}
 
       {roles.map((role, index) => (
         <div key={`${role.company}-${role.dates}`} className="w-full">
