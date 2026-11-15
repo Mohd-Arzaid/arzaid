@@ -33,9 +33,6 @@ export default function Footer() {
           <Link href="/links" className={linkClass}>
             Links
           </Link>
-          <Link href="/snippets" className={linkClass}>
-            Snippets
-          </Link>
           <Link href="/resources" className={linkClass}>
             Resources
           </Link>
@@ -54,12 +51,6 @@ export default function Footer() {
           <ExternalLink href="https://instagram.com">Instagram</ExternalLink>
           <Link href="/freelance" className={linkClass}>
             Freelancing
-          </Link>
-          <Link href="/freecodecamp" className={linkClass}>
-            freeCodeCamp
-          </Link>
-          <Link href="/boxshadows" className={linkClass}>
-            Box Shadows
           </Link>
           <Link href="/design-inspiration" className={linkClass}>
             Design Inspiration
@@ -97,20 +88,11 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <Link href="/snippets" className={linkClass}>
-            Snippets
-          </Link>
           <Link href="/resources" className={linkClass}>
             Resources
           </Link>
           <Link href="/demos" className={linkClass}>
             Live Demos
-          </Link>
-          <Link href="/freecodecamp" className={linkClass}>
-            freeCodeCamp
-          </Link>
-          <Link href="/boxshadows" className={linkClass}>
-            Box Shadows
           </Link>
           <Link href="/design-inspiration" className={linkClass}>
             Design Inspiration

@@ -12,22 +12,18 @@ export default function Navbar() {
   const links = [
     { name: "Home", link: "/" },
     { name: "Blog", link: "/blog" },
-    { name: "Snippets", link: "/snippets" },
-    { name: "Resources", link: "/resources" },
-    { name: "Projects", link: "/projects" },
     { name: "Work", link: "/work" },
+    { name: "Projects", link: "/projects" },
+    { name: "Resources", link: "/resources" },
   ];
 
   const mobileLinks = [
     { name: "Home", link: "/" },
-    { name: "Projects", link: "/projects" },
     { name: "Blog", link: "/blog" },
-    { name: "Snippets", link: "/snippets" },
-    { name: "Resources", link: "/resources" },
     { name: "Work", link: "/work" },
+    { name: "Projects", link: "/projects" },
+    { name: "Resources", link: "/resources" },
     { name: "Freelancing", link: "/freelance" },
-    { name: "Box Shadows", link: "/boxshadows" },
-    { name: "FreeCodeCamp", link: "/freecodecamp" },
   ];
 
   return (
