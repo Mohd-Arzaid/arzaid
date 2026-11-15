@@ -21,9 +21,9 @@ export default function Home() {
             Recent Blogs
           </h3>
           <BlogPost
-            title="Ace the Javascript Interview"
-            summary="Ace your next Javascript Interview - Practice these topics in depth with examples."
-            slug="ace-the-javascript-interview"
+            title="this, call, apply, bind — once and for all"
+            summary="Short wrong vs right examples so this finally sticks — plus when to use call, apply, and bind."
+            slug="this-call-apply-bind"
           />
           <BlogPost
             title="React Hooks traps that show up in real interviews"

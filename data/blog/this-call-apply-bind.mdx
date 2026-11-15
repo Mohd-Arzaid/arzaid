@@ -1,0 +1,303 @@
+---
+title: "this, call, apply, bind — once and for all"
+publishedAt: "2026-11-15"
+summary: "Short wrong vs right examples so this finally sticks — plus when to use call, apply, and bind."
+---
+
+`this` is not "the function." It is decided by **how the function is called**. Once that clicks, `call`, `apply`, and `bind` stop feeling like three random APIs.
+
+## Table of Contents
+
+1. [What this actually is](/blog/this-call-apply-bind#what-this-actually-is)
+2. [Default, implicit, explicit](/blog/this-call-apply-bind#default-implicit-explicit)
+3. [Arrow vs regular functions](/blog/this-call-apply-bind#arrow-vs-regular-functions)
+4. [call()](/blog/this-call-apply-bind#call)
+5. [apply()](/blog/this-call-apply-bind#apply)
+6. [bind()](/blog/this-call-apply-bind#bind)
+7. [Cheat sheet](/blog/this-call-apply-bind#cheat-sheet)
+8. [Interview checklist](/blog/this-call-apply-bind#interview-checklist)
+
+<div id="what-this-actually-is">
+  <StepLargeCustom number="1" title="What this actually is" />
+</div>
+
+Look at the **call site**, not the function definition.
+
+```js
+function show() {
+  console.log(this.name);
+}
+
+const user = { name: "Arzaid", show };
+user.show(); // "Arzaid" — called as a method of user
+show(); // undefined (strict) or window.name — called alone
+```
+
+Same function. Different `this`. That is the whole topic.
+
+For more JS interview foundations, see [Ace the Javascript Interview](/blog/ace-the-javascript-interview).
+
+<Divider />
+
+<div id="default-implicit-explicit">
+  <StepLargeCustom number="2" title="Default, implicit, explicit" />
+</div>
+
+### Implicit binding
+
+`this` = object before the dot.
+
+```js
+const car = {
+  brand: "BMW",
+  getBrand() {
+    return this.brand;
+  },
+};
+
+console.log(car.getBrand()); // "BMW"
+```
+
+### Lost this (classic trap)
+
+<HighlightBox>
+  <strong>Broken:</strong>
+</HighlightBox>
+
+```js
+const getBrand = car.getBrand;
+console.log(getBrand()); // not "BMW" — call site has no object
+```
+
+You extracted the method. The call is bare. Implicit binding is gone.
+
+### Default binding
+
+Bare call → `this` is `undefined` in strict mode, or the global object in non-strict (browsers: `window`).
+
+### Explicit binding
+
+You force `this` with `call` / `apply` / `bind` — next sections.
+
+<StepCheck title="Method call → this is the object" />
+<StepCheck title="Bare call → default binding" />
+<StepCheck title="call / apply / bind → you choose this" />
+
+<Divider />
+
+<div id="arrow-vs-regular-functions">
+  <StepLargeCustom number="3" title="Arrow vs regular functions" />
+</div>
+
+Arrow functions do **not** get their own `this`. They inherit it from the enclosing scope (lexical).
+
+<HighlightBox>
+  <strong>Broken — regular function loses this:</strong>
+</HighlightBox>
+
+```js
+const button = {
+  label: "Save",
+  setup() {
+    setTimeout(function () {
+      console.log(this.label); // undefined — this is not button
+    }, 0);
+  },
+};
+
+button.setup();
+```
+
+<HighlightBox>
+  <strong>Fixed — arrow keeps outer this:</strong>
+</HighlightBox>
+
+```js
+const button = {
+  label: "Save",
+  setup() {
+    setTimeout(() => {
+      console.log(this.label); // "Save"
+    }, 0);
+  },
+};
+
+button.setup();
+```
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> Use arrows when you want the surrounding `this`. Do not use arrows when you need dynamic method-style `this` (e.g. object methods that should bind to the object — prefer a regular method).
+
+In React, class `this` headaches are mostly gone with hooks — see [React Hooks traps](/blog/react-hooks-traps). Still, interviews love comparing arrows vs `function`.
+
+<Divider />
+
+<div id="call">
+  <StepLargeCustom number="4" title="call()" />
+</div>
+
+`fn.call(thisArg, arg1, arg2, ...)` — run `fn` now, with a chosen `this`, arguments listed one by one.
+
+```js
+function intro(greeting, punct) {
+  return `${greeting}, I am ${this.name}${punct}`;
+}
+
+const person = { name: "Arzaid" };
+
+console.log(intro.call(person, "Hi", "!")); // "Hi, I am Arzaid!"
+```
+
+Borrowing a method:
+
+```js
+const obj1 = {
+  nums: [1, 2, 3],
+  max() {
+    return Math.max.apply(null, this.nums);
+  },
+};
+
+const obj2 = { nums: [9, 4, 7] };
+console.log(obj1.max.call(obj2)); // 9 — max runs with obj2 as this
+```
+
+<HighlightBox>
+  <strong>Takeaway:</strong>
+</HighlightBox> `call` = invoke immediately + set `this` + pass args as a list.
+
+<Divider />
+
+<div id="apply">
+  <StepLargeCustom number="5" title="apply()" />
+</div>
+
+`fn.apply(thisArg, [argsArray])` — same as `call`, but arguments come as an **array** (or array-like).
+
+```js
+function intro(greeting, punct) {
+  return `${greeting}, I am ${this.name}${punct}`;
+}
+
+const person = { name: "Arzaid" };
+
+console.log(intro.apply(person, ["Hi", "!"])); // "Hi, I am Arzaid!"
+```
+
+Handy with Math and spreads (older style before `...`):
+
+```js
+const nums = [3, 8, 2];
+console.log(Math.max.apply(null, nums)); // 8
+// modern: Math.max(...nums)
+```
+
+<HighlightBox>
+  <strong>Wrong vs right mental model:</strong>
+</HighlightBox>
+
+```js
+// call  — commas
+fn.call(obj, a, b, c);
+
+// apply — array
+fn.apply(obj, [a, b, c]);
+```
+
+Same result. Different argument shape.
+
+<Divider />
+
+<div id="bind">
+  <StepLargeCustom number="6" title="bind()" />
+</div>
+
+`fn.bind(thisArg, ...partialArgs)` does **not** run the function. It returns a **new** function permanently tied to that `this` (and optional preset args).
+
+<HighlightBox>
+  <strong>Broken — handler loses this:</strong>
+</HighlightBox>
+
+```js
+const user = {
+  name: "Arzaid",
+  onClick() {
+    console.log(this.name);
+  },
+};
+
+// later, something calls onClick as a bare callback
+const handler = user.onClick;
+handler(); // lost this
+```
+
+<HighlightBox>
+  <strong>Fixed — bind:</strong>
+</HighlightBox>
+
+```js
+const handler = user.onClick.bind(user);
+handler(); // "Arzaid"
+```
+
+Partial application:
+
+```js
+function multiply(a, b) {
+  return a * b;
+}
+
+const double = multiply.bind(null, 2);
+console.log(double(5)); // 10
+```
+
+`bind` once, call many times. `call` / `apply` run once immediately.
+
+<Divider />
+
+<div id="cheat-sheet">
+  <StepLargeCustom number="7" title="Cheat sheet" />
+</div>
+
+```text
+call  → runs now, sets this, args as a list
+apply → runs now, sets this, args as an array
+bind  → returns a new function with this locked (optional partial args)
+```
+
+```js
+fn.call(obj, 1, 2);
+fn.apply(obj, [1, 2]);
+const bound = fn.bind(obj, 1);
+bound(2);
+```
+
+<StepCheck title="Need to run now with a custom this → call or apply" />
+<StepCheck title="Have args as an array → apply (or spread + call)" />
+<StepCheck title="Need a reusable function with fixed this → bind" />
+
+<Divider />
+
+<div id="interview-checklist">
+  <StepLargeCustom number="8" title="Interview checklist" />
+</div>
+
+Walk through these out loud:
+
+<StepCheck title="Can I explain this from the call site, not the definition?" />
+<StepCheck title="What happens when I assign const f = obj.method and call f()?" />
+<StepCheck title="Difference between arrow this and function this?" />
+<StepCheck title="call vs apply in one sentence?" />
+<StepCheck title="Why bind for event handlers / extracted methods?" />
+<StepCheck title="Does bind invoke the function? (No.)" />
+
+Strict mode tip: bare `this` is `undefined`, not `window` — that alone is a common MCQ.
+
+## Closing
+
+Remember one sentence: **`this` follows the call.** `call` and `apply` set it for one run; `bind` locks it for later.
+
+More tools and reading: [Resources](/resources).
+
+✌️ Thanks!

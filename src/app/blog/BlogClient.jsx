@@ -56,14 +56,19 @@ export default function BlogClient({ posts }) {
             Most Popular
           </h3>
           <BlogPost
-            title="Ace the Javascript Interview"
-            summary="Ace your next Javascript Interview - Practice these topics in depth with examples."
-            slug="ace-the-javascript-interview"
+            title="this, call, apply, bind — once and for all"
+            summary="Short wrong vs right examples so this finally sticks — plus when to use call, apply, and bind."
+            slug="this-call-apply-bind"
           />
           <BlogPost
             title="React Hooks traps that show up in real interviews"
             summary="Stale closures, effect dependencies, derived state, and other hooks mistakes — with clear wrong vs right examples."
             slug="react-hooks-traps"
+          />
+          <BlogPost
+            title="Ace the Javascript Interview"
+            summary="Ace your next Javascript Interview - Practice these topics in depth with examples."
+            slug="ace-the-javascript-interview"
           />
         </>
       )}
