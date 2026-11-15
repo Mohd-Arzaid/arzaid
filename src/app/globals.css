@@ -11,7 +11,7 @@
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    @apply bg-white;
+    background-color: white;
   }
 }
 

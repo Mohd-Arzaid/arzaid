@@ -14,7 +14,6 @@ export const BlurImage = ({ src, className = "", alt = "", ...rest }) => {
       onLoad={() => setLoading(false)}
       src={src}
       alt={alt}
-      loading="lazy"
       decoding="async"
       {...rest}
     />

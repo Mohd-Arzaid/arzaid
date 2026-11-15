@@ -119,7 +119,7 @@ export function Mobile({ links }) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute inset-x-0 mx-auto top-20 flex flex-col w-[90%] p-4 rounded-lg shadow-xl z-[999] bg-white divide-y"
+            className="absolute inset-x-0 mx-auto top-20 flex flex-col w-[90%] p-4 rounded-lg shadow-xl z-999 bg-white divide-y"
           >
             {[...links].splice(2).map((el) => (
               <button
@@ -170,7 +170,7 @@ export function Desktop({ links, hoveredIndex, setHoveredIndex, pathname }) {
             {navLink.name}
           </span>
           {pathname === navLink.link && (
-            <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0" />
+            <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0" />
           )}
         </NextLink>
       ))}
