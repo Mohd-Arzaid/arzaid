@@ -12,7 +12,7 @@ export default function ProjectsPage() {
         id="skip"
         className="flex flex-col justify-center bg-white px-8 text-gray-900 antialiased"
       >
-        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-4">
+        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
           <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black">
             Projects
           </h1>
@@ -40,7 +40,7 @@ export default function ProjectsPage() {
             href="https://github.com/Mohd-Arzaid"
             target="_blank"
             rel="noopener noreferrer"
-            className="border flex flex-row items-center justify-center mx-auto rounded-md px-4 py-2 text-gray-800 my-4"
+            className="border flex flex-row items-center justify-center mx-auto rounded-md px-4 py-2 text-gray-800 mt-4"
           >
             See all at{" "}
             <span>

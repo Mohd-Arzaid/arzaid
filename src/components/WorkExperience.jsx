@@ -1,8 +1,8 @@
 import experience from "@/data/experience";
 
-function Step({ children }) {
+function Step({ children, className = "mb-4 ml-2" }) {
   return (
-    <li className="mb-4 ml-2">
+    <li className={className}>
       <div className="flex items-start">
         <span className="mr-2 mt-0.5 shrink-0 leading-none text-gray-700">
           •
@@ -49,9 +49,20 @@ export default function WorkExperience({
           </div>
 
           <ul className="mt-4">
-            {role.points.map((point) => (
-              <Step key={point}>{point}</Step>
-            ))}
+            {role.points.map((point, pointIndex) => {
+              const isLast =
+                index === roles.length - 1 &&
+                pointIndex === role.points.length - 1;
+
+              return (
+                <Step
+                  key={point}
+                  className={isLast ? "mb-0 ml-2" : "mb-4 ml-2"}
+                >
+                  {point}
+                </Step>
+              );
+            })}
           </ul>
         </div>
       ))}
