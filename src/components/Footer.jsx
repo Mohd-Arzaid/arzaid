@@ -15,11 +15,11 @@ const ExternalLink = ({ href, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-center items-start w-full">
+    <footer className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
       <hr className="w-full border border-gray-200 mb-8" />
 
       {/* Mobile: exactly 2 columns */}
-      <div className="w-full grid grid-cols-2 gap-4 pb-8 sm:hidden">
+      <div className="w-full grid grid-cols-2 gap-4 pb-16 sm:hidden">
         <div className="flex flex-col space-y-4">
           <Link href="/" className={linkClass}>
             Home
@@ -68,7 +68,7 @@ export default function Footer() {
       </div>
 
       {/* Desktop: 3 columns */}
-      <div className="hidden w-full gap-4 pb-8 sm:grid sm:grid-cols-3">
+      <div className="hidden w-full gap-4 pb-16 sm:grid sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
           <Link href="/" className={linkClass}>
             Home

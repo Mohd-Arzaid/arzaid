@@ -13,12 +13,16 @@ function Step({ children }) {
   );
 }
 
-export default function WorkExperience({ limit }) {
+export default function WorkExperience({ limit, withTopMargin = true }) {
   const roles = limit ? experience.slice(0, limit) : experience;
 
   return (
-    <section className="w-full mb-0">
-      <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black">
+    <section className="w-full">
+      <h3
+        className={`font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black${
+          withTopMargin ? " mt-8" : ""
+        }`}
+      >
         Work Experience
       </h3>
 
