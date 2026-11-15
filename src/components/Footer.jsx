@@ -19,7 +19,7 @@ export default function Footer() {
       <hr className="w-full border border-gray-200 mb-8" />
 
       {/* Mobile: exactly 2 columns */}
-      <div className="w-full grid grid-cols-2 gap-4 pb-16 sm:hidden">
+      <div className="w-full grid grid-cols-2 gap-4 pb-8 sm:hidden">
         <div className="flex flex-col space-y-4">
           <Link href="/" className={linkClass}>
             Home
@@ -68,7 +68,7 @@ export default function Footer() {
       </div>
 
       {/* Desktop: 3 columns */}
-      <div className="hidden w-full gap-4 pb-16 sm:grid sm:grid-cols-3">
+      <div className="hidden w-full gap-4 pb-8 sm:grid sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
           <Link href="/" className={linkClass}>
             Home
