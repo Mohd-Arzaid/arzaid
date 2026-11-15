@@ -31,20 +31,19 @@ export default function ProjectCard({ title, description, href, image, tags }) {
 
         <div className="flex flex-col items-start rounded p-4 relative">
           {image && (
-            <div className="relative aspect-16/10 w-full overflow-hidden rounded-lg bg-gray-100 mb-4">
+            <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg bg-zinc-950 mb-4">
               <Image
                 src={image}
                 alt={title}
                 fill
-                sizes="(max-width: 768px) 100vw, 320px"
-                className="object-cover transition duration-500 ease-out group-hover:scale-105"
+                className="object-cover object-top"
               />
             </div>
           )}
           <h4 className="text-xl font-bold tracking-tight text-gray-900">
             {title}
           </h4>
-          <p className="leading-6 pt-4 text-gray-700">{description}</p>
+          <p className="text-sm leading-5 pt-3 text-gray-700">{description}</p>
           <div className="pt-4 flex md:flex-row flex-wrap">
             {tags?.map((tag, idx) => (
               <p

@@ -4,7 +4,7 @@ const projects = [
     description:
       "An Ed-Tech platform for users to create, enroll in, and rate educational content.",
     href: "https://ed-tech-mern.vercel.app/",
-    image: "/projects/Project5.png",
+    image: "/projects/studynotion.png",
     tags: ["MongoDB", "ExpressJS", "React", "NodeJs", "Tailwind"],
   },
   {
