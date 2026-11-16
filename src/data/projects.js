@@ -26,10 +26,17 @@ const projects = [
   {
     title: "Typing Hub",
     description:
-      "Implemented a multimode Typing Test Website with the ability to save results for better analysis.",
+      "A typing test website with live stats, multi-theme UI, Better Auth login, and progress tracking with Chart.js.",
     href: "https://arzaid-typing-website.vercel.app/",
     image: "/projects/typing-hub.png",
-    tags: ["React", "Firebase", "Toastify", "Styled Components"],
+    tags: [
+      "React",
+      "Better Auth",
+      "MongoDB",
+      "Tailwind",
+      "Toastify",
+      "Chart.js",
+    ],
   },
   {
     title: "Saas Landing Page",
