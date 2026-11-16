@@ -10,10 +10,10 @@ const projects = [
   {
     title: "StudyNotion",
     description:
-      "An Ed-Tech platform for users to create, enroll in, and rate educational content.",
+      "An EdTech platform where instructors publish courses and students learn with video lectures, progress tracking, and Razorpay payments.",
     href: "https://arzaid-ed-tech-platform.vercel.app/",
     image: "/projects/studynotion.png",
-    tags: ["MongoDB", "ExpressJS", "React", "NodeJs", "Tailwind"],
+    tags: ["React", "Node.js", "MongoDB", "Razorpay", "Cloudinary"],
   },
   {
     title: "Food App",
@@ -26,17 +26,10 @@ const projects = [
   {
     title: "Typing Hub",
     description:
-      "A typing test website with live stats, multi-theme UI, Better Auth login, and progress tracking with Chart.js.",
+      "Practice typing with live stats and themes. Sign in to save results and track progress over time.",
     href: "https://arzaid-typing-website.vercel.app/",
     image: "/projects/typing-hub.png",
-    tags: [
-      "React",
-      "Better Auth",
-      "MongoDB",
-      "Tailwind",
-      "Toastify",
-      "Chart.js",
-    ],
+    tags: ["React", "Better Auth", "MongoDB", "Chart.js"],
   },
   {
     title: "Saas Landing Page",
