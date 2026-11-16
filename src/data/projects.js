@@ -27,7 +27,7 @@ const projects = [
     title: "Typing Hub",
     description:
       "Implemented a multimode Typing Test Website with the ability to save results for better analysis.",
-    href: "https://arzaid-typing-hub.netlify.app/",
+    href: "https://arzaid-typing-website.vercel.app/",
     image: "/projects/typing-hub.png",
     tags: ["React", "Firebase", "Toastify", "Styled Components"],
   },

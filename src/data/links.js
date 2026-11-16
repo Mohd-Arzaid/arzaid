@@ -58,7 +58,7 @@ const links = [
   },
   {
     name: "Typing Hub",
-    href: "https://arzaid-typing-hub.netlify.app/",
+    href: "https://arzaid-typing-website.vercel.app/",
     icon: MdKeyboard,
     iconClass: "text-emerald-600",
   },
