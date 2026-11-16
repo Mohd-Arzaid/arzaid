@@ -46,7 +46,7 @@ export default function ProjectCard({ title, description, href, image, tags }) {
           <h4 className="text-xl font-bold tracking-tight text-gray-900">
             {title}
           </h4>
-          <p className="text-sm leading-5 pt-3 text-gray-700">{description}</p>
+          <p className="pt-3 text-gray-700">{description}</p>
           <div className="pt-4 flex md:flex-row flex-wrap">
             {tags?.map((tag, idx) => (
               <p
