@@ -10,7 +10,7 @@ const projects = [
   {
     title: "StudyNotion",
     description:
-      "An EdTech platform where instructors publish courses and students learn with video lectures, progress tracking, and Razorpay payments.",
+      "An EdTech platform where instructors publish courses, students learn with video lectures, and Razorpay payments.",
     href: "https://arzaid-ed-tech-platform.vercel.app/",
     image: "/projects/studynotion.png",
     tags: ["React", "Node.js", "MongoDB", "Razorpay", "Cloudinary"],
