@@ -42,7 +42,7 @@ export default function ProjectCard({ title, description, href, image, tags }) {
                 fill
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 320px"
-                className="object-cover object-top"
+                className="object-full object-top"
               />
             </a>
           )}
