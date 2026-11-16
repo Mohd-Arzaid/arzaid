@@ -53,7 +53,6 @@ export default function ProjectCard({ title, description, href, image, tags }) {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
               >
                 {title}
               </a>
