@@ -31,22 +31,6 @@ const projects = [
     image: "/projects/typing-hub.png",
     tags: ["React", "Better Auth", "MongoDB", "Chart.js"],
   },
-  {
-    title: "Saas Landing Page",
-    description:
-      "Saas Landing Page build using react , tailwindCss and framer-motion for animation",
-    href: "#",
-    image: "/projects/Project7.png",
-    tags: ["React", "TailwindCss", "Framer-Motion"],
-  },
-  {
-    title: "Auth Flow",
-    description:
-      "A Complete Authentication solution featuring User management, secure Login, Registration, and Password recovery",
-    href: "https://arzaid-auth-flow.vercel.app/",
-    image: "/projects/Project8.png",
-    tags: ["MongoDB", "React", "NodeJs", "Redux", "ShadCN"],
-  },
 ];
 
 export default projects;

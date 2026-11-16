@@ -11,8 +11,6 @@ import {
   MdSchool,
   MdKeyboard,
 } from "react-icons/md";
-import { RiLockPasswordLine } from "react-icons/ri";
-
 const links = [
   {
     name: "Website",
@@ -61,12 +59,6 @@ const links = [
     href: "https://arzaid-typing-website.vercel.app/",
     icon: MdKeyboard,
     iconClass: "text-emerald-600",
-  },
-  {
-    name: "Auth Flow",
-    href: "https://arzaid-auth-flow.vercel.app/",
-    icon: RiLockPasswordLine,
-    iconClass: "text-violet-600",
   },
   {
     name: "Projects",
