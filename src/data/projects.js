@@ -11,7 +11,7 @@ const projects = [
     title: "StudyNotion",
     description:
       "An Ed-Tech platform for users to create, enroll in, and rate educational content.",
-    href: "https://ed-tech-mern.vercel.app/",
+    href: "https://arzaid-ed-tech-platform.vercel.app/",
     image: "/projects/studynotion.png",
     tags: ["MongoDB", "ExpressJS", "React", "NodeJs", "Tailwind"],
   },

@@ -46,7 +46,7 @@ const links = [
   },
   {
     name: "StudyNotion",
-    href: "https://ed-tech-mern.vercel.app/",
+    href: "https://arzaid-ed-tech-platform.vercel.app/",
     icon: MdSchool,
     iconClass: "text-yellow-600",
   },
