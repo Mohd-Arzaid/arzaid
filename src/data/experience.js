@@ -6,9 +6,10 @@ const experience = [
     location: "New Delhi",
     dates: "Oct 2024 – Oct 2026",
     points: [
-      "Architected and built a full-stack multilingual website from scratch, delivering end-to-end functionality and SEO optimisation across 12 languages.",
-      "Integrated and scaled a Node.js backend with Zoho CRM, Google Sheets, and Gmail to streamline contact lead management for 15k+ monthly active users.",
-      "Built a CRM platform with an interactive dashboard to manage, analyse, and track client quotations, using role-based access for Admins and Coordinators to streamline quotation workflows.",
+      "Built a custom CRM platform end to end, from architecture to deployment, to centralise client data and quotation workflows with role-based access for Admins and Coordinators.",
+      "Developed a responsive website in 12 languages with a strong focus on UI/UX and SEO, improving search visibility and organic reach.",
+      "Integrated and scaled a Node.js backend with Zoho CRM, Google Sheets and Gmail to streamline contact lead management for 15k+ monthly active users.",
+      "Deployed the application on a Hostinger VPS with Nginx, ensuring scalability, reliability and consistent production uptime.",
     ],
   },
   {
