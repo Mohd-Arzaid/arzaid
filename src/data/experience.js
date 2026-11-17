@@ -23,7 +23,7 @@ const experience = [
   {
     title: "Full Stack Developer Intern",
     company: "Utrecht IT Consulting",
-    location: "New Delhi",
+    location: "Remote (Netherlands)",
     dates: "Dec 2022 – May 2023",
     points: [
       "Designed and developed the website for an international event in Saudi Arabia.",
