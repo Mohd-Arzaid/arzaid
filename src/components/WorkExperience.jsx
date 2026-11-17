@@ -38,13 +38,34 @@ export default function WorkExperience({
 
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
             <h4 className="text-lg md:text-xl font-bold tracking-tight text-gray-900">
-              {role.title}
+              {role.companyUrl ? (
+                <a
+                  href={role.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {role.title}
+                </a>
+              ) : (
+                role.title
+              )}
             </h4>
             <p className="text-sm text-gray-500 shrink-0">{role.dates}</p>
           </div>
 
           <div className="mt-1 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-            <p className="font-medium italic text-gray-800">{role.company}</p>
+            {role.companyUrl ? (
+              <a
+                href={role.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium italic text-gray-800"
+              >
+                {role.company}
+              </a>
+            ) : (
+              <p className="font-medium italic text-gray-800">{role.company}</p>
+            )}
             <p className="text-sm italic text-gray-500 shrink-0">{role.location}</p>
           </div>
 

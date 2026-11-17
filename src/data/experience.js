@@ -2,6 +2,7 @@ const experience = [
   {
     title: "Software Developer",
     company: "Sun Consultants & Engineers",
+    companyUrl: "https://bis-certifications.com/",
     location: "New Delhi",
     dates: "Oct 2024 – Oct 2026",
     points: [
@@ -13,6 +14,7 @@ const experience = [
   {
     title: "Full Stack Developer",
     company: "KGI Services",
+    companyUrl: "https://www.instagram.com/kgiservices/",
     location: "New Delhi",
     dates: "June 2023 – Sep 2024",
     points: [
@@ -23,6 +25,7 @@ const experience = [
   {
     title: "Full Stack Developer Intern",
     company: "Utrecht IT Consulting",
+    companyUrl: "https://utrechtitconsulting.com/",
     location: "Remote (Netherlands)",
     dates: "Dec 2022 – May 2023",
     points: [
