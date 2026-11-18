@@ -14,9 +14,9 @@ const posts = [
     publishedAt: "2024-11-15",
   },
   {
-    title: "Ace the Javascript Interview",
+    title: "Ace the JavaScript Interview",
     summary:
-      "Ace your next Javascript Interview - Practice these topics in depth with examples.",
+      "Ace your next JavaScript Interview - Practice these topics in depth with examples.",
     slug: "ace-the-javascript-interview",
     publishedAt: "2021-07-03",
   },

@@ -66,8 +66,8 @@ export default function BlogClient({ posts }) {
             slug="react-hooks-traps"
           />
           <BlogPost
-            title="Ace the Javascript Interview"
-            summary="Ace your next Javascript Interview - Practice these topics in depth with examples."
+            title="Ace the JavaScript Interview"
+            summary="Ace your next JavaScript Interview - Practice these topics in depth with examples."
             slug="ace-the-javascript-interview"
           />
         </>

@@ -15,7 +15,7 @@ export default function LinksPage() {
             Links
           </h1>
           <p className="text-gray-600 mb-4 hidden md:block">
-            Links to all my socials, projects and source codes.
+            Links to all my socials, projects, and source code.
           </p>
 
           {links.map((el) => {

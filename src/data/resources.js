@@ -69,7 +69,7 @@ const resources = [
         description: "Beautiful Components with Hooks and functions",
       },
       {
-        title: "Get Avaataars",
+        title: "Get Avataaars",
         link: "https://getavataaars.com/",
         websiteLink: "getavataaars.com",
         description: "Generate free avatars for multipurpose use.",
@@ -87,7 +87,7 @@ const resources = [
         description: "Tailwind gradients",
       },
       {
-        title: "Undesign - Free Resoureces",
+        title: "Undesign - Free Resources",
         link: "https://undesign.learn.uno/",
         websiteLink: "undesign.learn.uno",
         description: "Generate free Icons, illustrations and more",
@@ -96,7 +96,7 @@ const resources = [
         title: "Haikei app",
         link: "https://app.haikei.app/",
         websiteLink: "app.haikei.app",
-        description: "Generate SVG bogs, waves (single, multiple).",
+        description: "Generate SVG blobs, waves (single, multiple).",
       },
       {
         title: "Ray",
@@ -109,7 +109,7 @@ const resources = [
         link: "https://neumorphism.io/",
         websiteLink: "neumorphism.io",
         description:
-          "Get neuphormism theme layouts for your cards and websites",
+          "Get neumorphism theme layouts for your cards and websites",
       },
     ],
   },
@@ -126,7 +126,7 @@ const resources = [
         title: "Tailwind UI Kit",
         link: "https://www.tailwind-kit.com/",
         websiteLink: "tailwind-kit.com",
-        description: "Free tailwind UI Components",
+        description: "Free Tailwind UI Components",
       },
       {
         title: "UI Gradients",
@@ -168,7 +168,7 @@ const resources = [
         title: "Background generator",
         link: "https://bgjar.com/",
         websiteLink: "bgjar.com",
-        description: "Generate beautfiful backgrounds",
+        description: "Generate beautiful backgrounds",
       },
       {
         title: "Avatar Library",
@@ -209,7 +209,7 @@ const resources = [
         title: "Public APIs",
         link: "https://public-apis.xyz/",
         websiteLink: "public-apis.xyz",
-        description: "Collection of public apis",
+        description: "Collection of public APIs",
       },
       {
         title: "EasyDB",
@@ -233,7 +233,7 @@ const resources = [
         title: "Picsum photos",
         link: "https://picsum.photos/",
         websiteLink: "picsum.photos",
-        description: "Placeholder randon images",
+        description: "Placeholder random images",
       },
       {
         title: "Code image",

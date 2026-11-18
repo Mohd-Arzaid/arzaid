@@ -1,10 +1,10 @@
 ---
-title: "Ace the Javascript Interview"
+title: "Ace the JavaScript Interview"
 publishedAt: "2021-07-03"
-summary: "Ace your next Javascript Interview - Practice these topics in depth with examples."
+summary: "Ace your next JavaScript Interview - Practice these topics in depth with examples."
 ---
 
-I've compiled down all the popular concepts and questions related to a Javascript Interview. No matter at what level of understanding you're currently at, this will help you out.
+I've compiled down all the popular concepts and questions related to a JavaScript Interview. No matter at what level of understanding you're currently at, this will help you out.
 
 ## Table of Contents
 
@@ -333,7 +333,7 @@ let str = "1";
 console.log(number === str); // false
 ```
 
-In more precise terms: <HighlightBox>== converts both the values to the same type and then compares</HighlightBox> where as <HighlightBox>=== strictly checks for equality, which is, same type and content.</HighlightBox>
+In more precise terms: <HighlightBox>== converts both the values to the same type and then compares</HighlightBox> whereas <HighlightBox>=== strictly checks for equality, which is, same type and content.</HighlightBox>
 
 <Divider />
 
@@ -411,7 +411,7 @@ const obj = {
 
 const param1 = 1,
   param2 = 2;
-fun.call(obj, param1, param2); // {counter: 1} - the obj is binded with fun() method
+fun.call(obj, param1, param2); // {counter: 1} - the obj is bound to fun() method
 ```
 
 <HighlightBox>
@@ -432,7 +432,7 @@ const obj = {
 
 const param1 = 1,
   param2 = 2;
-fun.apply(obj, [param1, param2]); // {counter: 1} - the obj is binded with fun() method
+fun.apply(obj, [param1, param2]); // {counter: 1} - the obj is bound to fun() method
 ```
 
 <HighlightBox>
@@ -544,7 +544,7 @@ for (var i = 0; i < arr.length; i++) {
 In the above question:
 
 - Loop is executed and initial conditions are checked.
-- setTimeout() is not called -> defered to call stack(more on event loop later)
+- setTimeout() is not called -> deferred to call stack(more on event loop later)
 - `i` value is incremented and keeps on iterating.
 - Loop breaks, `i` = 4 and finally setTimeout() function is executed.
 - Since `i` = 4, Index: 4 is printed and since `arr[4]` does not exist, `undefined` is printed.
@@ -836,7 +836,7 @@ apiCall();
 > you access to an outer function’s scope from an inner function. In JavaScript, closures
 > are created every time a function is created, at function creation time.
 
-Before undersanding closures, lets understand <HighlightBox>Lexical Scope</HighlightBox>
+Before understanding closures, lets understand <HighlightBox>Lexical Scope</HighlightBox>
 
 ```js
 function start() {
