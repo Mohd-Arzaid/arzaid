@@ -5,7 +5,7 @@ import {
 } from "react-icons/ai";
 import { FaInstagram } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
-import { BsFileEarmarkCode } from "react-icons/bs";
+import { BsFileEarmarkCode, BsFileEarmarkPdf } from "react-icons/bs";
 import {
   MdOutlineRestaurantMenu,
   MdSchool,
@@ -41,6 +41,12 @@ const links = [
     href: "https://www.instagram.com/_arzaid_",
     icon: FaInstagram,
     iconClass: "text-pink-500",
+  },
+  {
+    name: "Resume",
+    href: "https://drive.google.com/file/d/1X0piJOzc4h2A8jIYerR87vCXAs2w3vfa/view",
+    icon: BsFileEarmarkPdf,
+    iconClass: "text-gray-700",
   },
   {
     name: "StudyNotion",

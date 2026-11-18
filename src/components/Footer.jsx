@@ -36,6 +36,9 @@ export default function Footer() {
           <Link href="/resources" className={linkClass}>
             Resources
           </Link>
+          <ExternalLink href="https://drive.google.com/file/d/1X0piJOzc4h2A8jIYerR87vCXAs2w3vfa/view">
+            Resume
+          </ExternalLink>
           <Link href="/demos" className={linkClass}>
             Live Demos
           </Link>
@@ -82,6 +85,9 @@ export default function Footer() {
           <Link href="/resources" className={linkClass}>
             Resources
           </Link>
+          <ExternalLink href="https://drive.google.com/file/d/1X0piJOzc4h2A8jIYerR87vCXAs2w3vfa/view">
+            Resume
+          </ExternalLink>
           <Link href="/demos" className={linkClass}>
             Live Demos
           </Link>
