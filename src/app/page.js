@@ -16,7 +16,7 @@ export default function Home() {
         id="skip"
         className="flex flex-col justify-center bg-white px-8 text-gray-900 antialiased"
       >
-        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-10">
+        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-10 w-full">
           <Header />
           <VideoShowcase />
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-10 text-black">

@@ -10,7 +10,7 @@ export default function WorkPage() {
         id="skip"
         className="flex flex-col justify-center bg-white px-8 text-gray-900 antialiased"
       >
-        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
           <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black">
             Work Experience
           </h1>
